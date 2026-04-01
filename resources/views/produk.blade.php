@@ -6,14 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Menu</h1>
-    <ul>
-        <li>
-            <a href="/produk">Data Produk</a>
-        </li>
-        <li>
-            <a href="/kategori">Data Kategori</a>
-        </li>
-    </ul>
+    <h1>Data Produk</h1>
+    <p>Semua data produk</p>
+    <br>
+    <a href="/">
+        <button>Kembali</button>
+    </a>
 </body>
 </html>
