@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MatakuliahController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,3 +27,5 @@ Route::get('/mahasiswa', function(){
 
     return response()->json($data);
 });
+
+Route::get('/matakuliah', [MatakuliahController::class, 'index']);
