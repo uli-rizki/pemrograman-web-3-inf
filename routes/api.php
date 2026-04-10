@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\MatakuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/mahasiswa', function(){
-    $mahasiswa = [
-        'nim' => "001",
-        'nama_lengkap' => 'Uli Rizki'
-    ];
-
-    return response()->json($mahasiswa);
-});
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 
 Route::get('/kelas', function(){
     $kelas = [

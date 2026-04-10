@@ -40,3 +40,16 @@ Selanjutnya
     - seeder
 
 ## ======================================================
+## 9 april
+1. perintah untuk membuat seeder (untuk membuat dummy data)
+    `php artisan make:seeder namaSeeder`
+
+    untuk eksekusi seeder berdasarkan kelas
+    `php artisan db:seed --class=NamaClass`
+
+Latihan
+- Buat model Matakuliah
+- buat seeder MatakuliahSeeder
+- buat MatakuliahController beserta function index
+- buat routing /matakuliah
+    datanya menampilkan dari database
