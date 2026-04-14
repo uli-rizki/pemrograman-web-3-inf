@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+// panggil controller
+use App\Http\Controllers\MahasiswaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/kontak', function(){
+    return view('kontak');
+});
+
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
