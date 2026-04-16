@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\FakultasController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 
 Route::get('/matakuliah', [MatakuliahController::class, 'index']);
+
+// Fakultas
+Route::get('/fakultas', [FakultasController::class, 'index']);
+Route::post('/fakultas', [FakultasController::class, 'store']);
