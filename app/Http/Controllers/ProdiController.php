@@ -131,6 +131,27 @@ class ProdiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // cari data berdasarkan id
+        $prodi = Prodi::find($id);
+        // jika data tidak ditemukan
+        if(! $prodi) {
+            return response()->json([
+                'status' => 'error',
+                'error' => 'Data tidak ditemukan'
+            ], 422);
+        }
+
+        $hapus = $prodi->delete();
+        if($hapus) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil dihapus'
+            ], 201);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'error' => 'Gagal menghapus data data'
+            ], 422);
+        }
     }
 }

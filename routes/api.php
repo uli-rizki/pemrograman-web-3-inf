@@ -44,3 +44,4 @@ Route::get('/user', [UserController::class, 'index']);
 Route::get('/prodi', [ProdiController::class, 'index']);
 Route::post('/prodi', [ProdiController::class, 'store']);
 Route::put('/prodi/{id}', [ProdiController::class, 'update']);
+Route::delete('/prodi/{id}', [ProdiController::class, 'destroy']);
