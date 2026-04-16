@@ -53,3 +53,9 @@ Latihan
 - buat MatakuliahController beserta function index
 - buat routing /matakuliah
     datanya menampilkan dari database
+
+## 16 April
+CRUD
+- siapkan migrasi
+- buat model
+- buat controller

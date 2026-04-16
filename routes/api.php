@@ -7,6 +7,7 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\ProdiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,8 @@ Route::get('/kelas', function(){
 Route::get('/dosen', [DosenController::class, 'index']);
 
 Route::get('/user', [UserController::class, 'index']);
+
+// Prodi
+Route::get('/prodi', [ProdiController::class, 'index']);
+Route::post('/prodi', [ProdiController::class, 'store']);
+Route::put('/prodi/{id}', [ProdiController::class, 'update']);
