@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\FakultasController;
+
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,6 +22,12 @@ use App\Http\Controllers\FakultasController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/login', function(){
+    return response()->json(['message' => 'Unautenticated'], 401);
+})->name('login');
+
+Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
