@@ -21,10 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 
-Route::get('/matakuliah', [MatakuliahController::class, 'index']);
+    Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 
-// Fakultas
-Route::get('/fakultas', [FakultasController::class, 'index']);
-Route::post('/fakultas', [FakultasController::class, 'store']);
+    // Fakultas
+    Route::get('/fakultas', [FakultasController::class, 'index']);
+    Route::post('/fakultas', [FakultasController::class, 'store']);
+});
+
