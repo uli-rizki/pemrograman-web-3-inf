@@ -59,3 +59,14 @@ CRUD
 - siapkan migrasi
 - buat model
 - buat controller
+
+1. Cek versi
+    `php artisan --version`
+
+2. Buat LoginController
+    `php artisan make:controller LoginController`
+
+3. Buat User Seeder 
+    `php artisan make:seeder UserSeeder`
+   eksekusi seeder
+   `php artisan db:seed --class UserSeeder`

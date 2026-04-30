@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\ProdiController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,24 +25,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
-Route::get('/matakuliah', [MatakuliahController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/kelas', function(){
-    $kelas = [
-        'nama_kelas' => "Kelas C1",
-        'jumlah_siswa' => 30
-    ];
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+    Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 
-    return response()->json($kelas);
+    Route::get('/kelas', function(){
+        $kelas = [
+            'nama_kelas' => "Kelas C1",
+            'jumlah_siswa' => 30
+        ];
+
+        return response()->json($kelas);
+    });
+
+    Route::get('/dosen', [DosenController::class, 'index']);
+
+    Route::get('/user', [UserController::class, 'index']);
+
+    // Prodi
+    Route::get('/prodi', [ProdiController::class, 'index']);
+    Route::post('/prodi', [ProdiController::class, 'store']);
+    Route::put('/prodi/{id}', [ProdiController::class, 'update']);
+    Route::delete('/prodi/{id}', [ProdiController::class, 'destroy']);
 });
 
-Route::get('/dosen', [DosenController::class, 'index']);
 
-Route::get('/user', [UserController::class, 'index']);
-
-// Prodi
-Route::get('/prodi', [ProdiController::class, 'index']);
-Route::post('/prodi', [ProdiController::class, 'store']);
-Route::put('/prodi/{id}', [ProdiController::class, 'update']);
-Route::delete('/prodi/{id}', [ProdiController::class, 'destroy']);
