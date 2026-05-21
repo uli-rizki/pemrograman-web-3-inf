@@ -107,4 +107,27 @@ class MahasiswaController extends Controller
             ], 422);
         }
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $mahasiswa = Mahasiswa::find($id);
+
+        if(! $mahasiswa) {
+            return response()->json([
+                'message' => 'Data tidak ditemukan'
+            ], 422);
+        }
+
+        $hapus = $mahasiswa->delete();
+
+        if($hapus) {
+            return response()->json([
+                'message' => 'success'
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Gagal menghapus data'
+            ], 422);
+        }
+    }
 }

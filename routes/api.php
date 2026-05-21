@@ -34,7 +34,8 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
     Route::post('/mahasiswa', [MahasiswaController::class, 'store']);
-    Route::post('/mahasiswa/{id}', [MahasiswaController::class, 'update']);
+    Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update']);
+    Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy']);
 
     Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 
