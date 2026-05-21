@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\ProdiController;
 
 use App\Http\Controllers\LoginController;
 /*
@@ -37,5 +38,9 @@ Route::middleware('auth:sanctum')->group(function () {
     // Fakultas
     Route::get('/fakultas', [FakultasController::class, 'index']);
     Route::post('/fakultas', [FakultasController::class, 'store']);
+
+    // Fakultas
+    Route::get('/prodi', [ProdiController::class, 'index']);
+    Route::post('/prodi', [ProdiController::class, 'store']);
 });
 
