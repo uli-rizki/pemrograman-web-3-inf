@@ -33,6 +33,8 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+    Route::post('/mahasiswa', [MahasiswaController::class, 'store']);
+
     Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 
     Route::get('/kelas', function(){
