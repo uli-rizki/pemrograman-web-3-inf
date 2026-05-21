@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Prodi;
+
 class Mahasiswa extends Model
 {
     use HasFactory;
@@ -20,4 +22,9 @@ class Mahasiswa extends Model
         'kelas',
         'prodi_id'
     ];
+
+    public function prodi()
+    {
+        return $this->belongsTo(Prodi::class, 'prodi_id');
+    }
 }
